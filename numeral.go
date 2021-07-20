@@ -27,7 +27,7 @@ const (
 )
 
 // Ordinal returns the ordinal value of an integer
-func Ordinal(n int, suffixOnly bool) (string, error) {
+func Ordinal(n int) (string, error) {
 	// Negative number
 	if n < 0 {
 		return empty, errors.New("negative number found")
@@ -38,9 +38,6 @@ func Ordinal(n int, suffixOnly bool) (string, error) {
 
 	// pad the number with the suffix
 	pad := func(suff string) string {
-		if suffixOnly {
-			return suff
-		}
 		return fmt.Sprintf("%d%s", n, suff)
 	}
 

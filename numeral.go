@@ -37,23 +37,23 @@ func Ordinal(n int) (string, error) {
 	hundreds := n % 100
 
 	// pad the number with the suffix
-	pad := func(suff string) string {
-		return fmt.Sprintf("%d%s", n, suff)
+	pad := func(suff string) (string, error) {
+		return fmt.Sprintf("%d%s", n, suff), nil
 	}
 
 	switch hundreds {
 	case 11, 12, 13:
-		return pad(th), nil
+		return pad(th)
 	}
 
 	switch tens {
 	case 1:
-		return pad(st), nil
+		return pad(st)
 	case 2:
-		return pad(nd), nil
+		return pad(nd)
 	case 3:
-		return pad(rd), nil
+		return pad(rd)
 	}
 
-	return pad(th), nil
+	return pad(th)
 }

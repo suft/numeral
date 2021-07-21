@@ -1,3 +1,4 @@
+// A numeral utility package for Go
 package numeral
 
 import (
@@ -26,7 +27,7 @@ const (
 	th = "th"
 )
 
-// Ordinal returns the ordinal value of an integer
+// Ordinal returns the English ordinal letters following a numeral
 func Ordinal(n int) (string, error) {
 	// Negative number
 	if n < 0 {

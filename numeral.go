@@ -2,7 +2,6 @@
 package numeral
 
 import (
-	"errors"
 	"fmt"
 )
 
@@ -11,9 +10,6 @@ const Version = "v0.1.0"
 
 // Ordinal Constants
 const (
-	// The empty ordinal suffix
-	empty = ""
-
 	// The st ordinal suffix
 	st = "st"
 
@@ -27,19 +23,16 @@ const (
 	th = "th"
 )
 
-// Ordinal returns the English ordinal letters following a numeral
-func Ordinal(n int) (string, error) {
-	// Negative number
-	if n < 0 {
-		return empty, errors.New("negative number found")
-	}
-
+// Ordinal takes a unsigned integer and
+// returns the English ordinal letters
+// following the inputted integer.
+func Ordinal(n uint) string {
 	tens := n % 10
 	hundreds := n % 100
 
 	// pad the number with the suffix
-	pad := func(suff string) (string, error) {
-		return fmt.Sprintf("%d%s", n, suff), nil
+	pad := func(suff string) string {
+		return fmt.Sprintf("%d%s", n, suff)
 	}
 
 	switch hundreds {

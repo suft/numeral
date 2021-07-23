@@ -18,35 +18,7 @@ go get github.com/suft/numeral
 
 ### Ordinal
 
-``numeral.Ordinal`` is a function that returns the English ordinal letters following a numeral.
-
-#### With error checking
-
-```go
-package main
-
-import (
-    "fmt"
-    "os"
-
-    "github.com/suft/numeral"
-)
-
-func main() {
-    visitor, err := numeral.Ordinal(2)
-    if err != nil {
-      return fmt.Fprintf(os.Stderr, "invalid value")
-      os.Exit(1)
-    }
-    fmt.Printf("You are the %s visitor", visitor)
-}
-```
-
-```text
-You are the 2nd visitor
-```
-
-#### Without error checking
+``numeral.Ordinal`` is a function that takes a unsigned integer and returns the English ordinal letters following the inputted integer.
 
 ```go
 package main
@@ -58,7 +30,7 @@ import (
 )
 
 func main() {
-    visitor, _ := numeral.Ordinal(3)
+    visitor := numeral.Ordinal(3)
     fmt.Printf("You are the %s visitor", visitor)
 }
 ```

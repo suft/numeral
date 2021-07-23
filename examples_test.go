@@ -9,5 +9,5 @@ import (
 // Example of using the Ordinal function
 func ExampleOrdinal() {
 	fmt.Println(numeral.Ordinal(1))
-	// Output: 1st <nil>
+	// Output: 1st
 }
